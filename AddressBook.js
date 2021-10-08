@@ -159,6 +159,30 @@ searchInACity("Tim","Pune");
 searchInAState("Avinash","Karnataka");
 searchInAState("Mark","Kerala");
 
+//view persons in a city or state
+function contactsInCity(city){
+    let peopleInGivenCity = contactArray.filter(contact => contact._city == city);
+    if(peopleInGivenCity.length == 0) { 
+        console.log("\ncity not found");
+    }
+    else {
+        console.log("\nContacts in city "+ city+ " are:");
+        console.log(peopleInGivenCity.toString());
+    }
+}
 
+function contactsInState(state){
+    let peopleInGivenState = contactArray.filter(contact => contact._state == state);
+    if(peopleInGivenState.length == 0) { 
+        console.log("\nstate not found");
+    }
+    else {
+        console.log("\nContacts in state "+ state+ " are:");
+        console.log(peopleInGivenState.toString());
+    }
+}
+
+contactsInCity("Shimoga");
+contactsInState("Karnataka");
 
 
