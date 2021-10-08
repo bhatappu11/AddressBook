@@ -200,3 +200,24 @@ function getCountByState(state){
 
 console.log("Number of contacts in Shimoga:" + getCountByCity("Shimoga"));
 console.log("Number of contacts in Karnataka:" + getCountByState("Karnataka"));
+
+//sort by name
+function SortByName(){
+    contactArray.sort((contact1,contact2) =>{
+        if(contact1._firstName > contact2._firstName)
+            return 1;
+        else if(contact1._firstName < contact2._firstName)
+            return -1;
+        else {
+            if(contact1._lastName > contact2._lastName)
+            return 1;
+            else if(contact1._lastName < contact2._lastName)
+            return -1;
+            else return 0;
+        }
+    })
+}
+
+SortByName();
+console.log("\nSorted Array based on name: ")
+console.log(contactArray.toString());
