@@ -132,6 +132,33 @@ function getCount(){
 }
 
 console.log("Number of contacts: "+getCount());
+//search by city or state
+function searchInACity(firstName,city){
+    let peopleInGivenCity = contactArray.filter(contact => contact._firstName == firstName && contact._city == city);
+    if(peopleInGivenCity.length == 0) { 
+        console.log("\nno contact named "+ firstName+ " is found in city "+ city);
+    }
+    else {
+        console.log("\nContacts named "+ firstName+" in city "+ city+ " are:");
+        console.log(peopleInGivenCity.toString());
+    }
+}
+function searchInAState(firstName,state){
+    let peopleInGivenState = contactArray.filter(contact => contact._firstName == firstName && contact._state == state);
+    if(peopleInGivenState.length == 0) {
+        console.log("\nno contact named "+ firstName+ " is found in state "+ state);
+    }
+    else{
+        console.log("\nContacts named "+ firstName+" in state "+ state+ " are:");
+        console.log(peopleInGivenState.toString());
+    }
+}
+
+searchInACity("Mark","Bengaluru");
+searchInACity("Tim","Pune");
+searchInAState("Avinash","Karnataka");
+searchInAState("Mark","Kerala");
+
 
 
 
