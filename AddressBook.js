@@ -185,4 +185,18 @@ function contactsInState(state){
 contactsInCity("Shimoga");
 contactsInState("Karnataka");
 
+//get count by city or state
 
+function getCountByCity(city){
+    let numberOfContacts = contactArray.filter(contact => contact._city == city)
+                                       .reduce(numberOfContacts => numberOfContacts+1,0);
+    return numberOfContacts;
+}
+function getCountByState(state){
+    let numberOfContacts = contactArray.filter(contact => contact._state == state)
+                                       .reduce(numberOfContacts => numberOfContacts+1,0);
+    return numberOfContacts;
+}
+
+console.log("Number of contacts in Shimoga:" + getCountByCity("Shimoga"));
+console.log("Number of contacts in Karnataka:" + getCountByState("Karnataka"));
