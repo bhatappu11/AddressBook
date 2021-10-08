@@ -75,3 +75,29 @@ let contactArray = new Array();
 contactArray.push(new AddressBook("Mark","Taylor","RTNagar","Bengaluru","Karnataka",577333,"91 8989898989","mark@gmail.com"));
 contactArray.push(new AddressBook("Tim","Holland","JPNagar","Bengaluru","Karnataka",560180,"91 6767676767","tim@gmail.com"));
 console.log(contactArray.toString());
+editContact("Tim","zip",512124)
+function editContact(firstName,attribute,value){
+    let contact = contactArray.find(contact => contact._firstName == firstName);
+    if(contact == null) console.log("Contact not present");
+    switch(attribute){
+        case "firstName":
+            contact._firstName = value; break;
+        case "lastName":
+            contact._lastName = value; break;
+        case "address":
+            contact._address = value; break;
+        case "city":
+            contact._city = value; break;
+        case "state":
+            contact._state = value; break;
+        case "zip":
+            contact._zip = value; break;
+        case "phoneNumber":
+            this._phoneNumber = value; break;
+        case "email":
+            this._email = value; break;
+        default:
+            console.error("incorrect attribute");
+    }
+}
+console.log(contactArray.toString());
