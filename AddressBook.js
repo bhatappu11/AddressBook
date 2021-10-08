@@ -75,7 +75,7 @@ let contactArray = new Array();
 contactArray.push(new AddressBook("Mark","Taylor","RTNagar","Bengaluru","Karnataka",577333,"91 8989898989","mark@gmail.com"));
 contactArray.push(new AddressBook("Tim","Holland","JPNagar","Bengaluru","Karnataka",560180,"91 6767676767","tim@gmail.com"));
 console.log(contactArray.toString());
-editContact("Tim","zip",512124)
+//edit
 function editContact(firstName,attribute,value){
     let contact = contactArray.find(contact => contact._firstName == firstName);
     if(contact == null) console.log("Contact not present");
@@ -100,4 +100,14 @@ function editContact(firstName,attribute,value){
             console.error("incorrect attribute");
     }
 }
+editContact("Tim","zip",512124);
+console.log(contactArray.toString());
+//delete
+function deleteByName(firstName,lastName){
+    let index  = contactArray.findIndex(contact => contact._firstName == firstName && contact._lastName == lastName);
+    contactArray.splice(index,1);
+}
+
+deleteByName("Tim","Holland");
+console.log("\n after deletion")
 console.log(contactArray.toString());
