@@ -74,6 +74,7 @@ class AddressBook {
 let contactArray = new Array();
 contactArray.push(new AddressBook("Mark","Taylor","RTNagar","Bengaluru","Karnataka",577333,"91 8989898989","mark@gmail.com"));
 contactArray.push(new AddressBook("Tim","Holland","JPNagar","Bengaluru","Karnataka",560180,"91 6767676767","tim@gmail.com"));
+contactArray.push(new AddressBook("Brad","Pitt","Jaynagar","Shimoga","Karnataka",562380,"91 9967676767","brad@gmail.com"));
 console.log(contactArray.toString());
 //edit
 function editContact(firstName,attribute,value){
@@ -109,5 +110,15 @@ function deleteByName(firstName,lastName){
 }
 
 deleteByName("Tim","Holland");
-console.log("\n after deletion")
+console.log("\n after deletion");
 console.log(contactArray.toString());
+
+//count
+function getCount(){
+    let numberOfContacts = contactArray.reduce(numberOfContacts => numberOfContacts +=1,0);
+    return numberOfContacts;
+}
+
+console.log("Number of contacts: "+getCount());
+
+
