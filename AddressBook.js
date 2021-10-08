@@ -67,9 +67,11 @@ class AddressBook {
     }
     toString() {
         return "first name="+ this.firstName +",last name="+ this.lastName +", address="+ this.address+", city="+ this.city
-        +", state="+ this.state+", zip="+ this.zip+", phone="+ this.phoneNumber+", email="+ this.email;
+        +", state="+ this.state+", zip="+ this.zip+", phone="+ this.phoneNumber+", email="+ this.email+"\n";
     }
 
 }
-let addressBook = new AddressBook("Mark","James","BakersStreet","Banglore","Karnataka",577834,"91 9898989898","mark@gmail.com");
-console.log(addressBook.toString());
+let contactArray = new Array();
+contactArray.push(new AddressBook("Mark","Taylor","RTNagar","Bengaluru","Karnataka",577333,"91 8989898989","mark@gmail.com"));
+contactArray.push(new AddressBook("Tim","Holland","JPNagar","Bengaluru","Karnataka",560180,"91 6767676767","tim@gmail.com"));
+console.log(contactArray.toString());
