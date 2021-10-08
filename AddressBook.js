@@ -72,9 +72,20 @@ class AddressBook {
 
 }
 let contactArray = new Array();
-contactArray.push(new AddressBook("Mark","Taylor","RTNagar","Bengaluru","Karnataka",577333,"91 8989898989","mark@gmail.com"));
-contactArray.push(new AddressBook("Tim","Holland","JPNagar","Bengaluru","Karnataka",560180,"91 6767676767","tim@gmail.com"));
-contactArray.push(new AddressBook("Brad","Pitt","Jaynagar","Shimoga","Karnataka",562380,"91 9967676767","brad@gmail.com"));
+addContact(new AddressBook("Mark","Taylor","RTNagar","Bengaluru","Karnataka",577333,"91 8989898989","mark@gmail.com"));
+addContact(new AddressBook("Tim","Holland","JPNagar","Bengaluru","Karnataka",560180,"91 6767676767","tim@gmail.com"));
+addContact(new AddressBook("Brad","Pitt","Jaynagar","Shimoga","Karnataka",562380,"91 9967676767","brad@gmail.com"));
+//add
+function addContact(contact){
+    let duplicate = contactArray.find(currentContact => currentContact._firstName == contact._firstName && currentContact._lastName == contact._lastName);
+    if(duplicate == null){
+        contactArray.push(contact);
+    }
+    else console.log("the contact already exists");
+}
+
+addContact(new AddressBook("Avinash","Kodle","JPNagar","Shimoga","Karnataka",547415,"91 8834567891","avi@gmail.com"));
+addContact(new AddressBook("Avinash","Kodle","NPNagar","Bengaluru","Karnataka",522415,"91 8899567891","avi@gmail.com"));
 console.log(contactArray.toString());
 //edit
 function editContact(firstName,attribute,value){
@@ -102,6 +113,7 @@ function editContact(firstName,attribute,value){
     }
 }
 editContact("Tim","zip",512124);
+console.log("After edit");
 console.log(contactArray.toString());
 //delete
 function deleteByName(firstName,lastName){
@@ -120,5 +132,6 @@ function getCount(){
 }
 
 console.log("Number of contacts: "+getCount());
+
 
 
