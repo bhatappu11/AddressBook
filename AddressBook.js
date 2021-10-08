@@ -11,35 +11,59 @@ class AddressBook {
     }
     get firstName() { return this._firstName; }
     set firstName(firstName) {
-        this._firstName = firstName;
+        let firstNameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
+        if(firstNameRegex.test(firstName))
+            this._firstName = firstName;
+        else throw 'first name is Incorrect';
     }
     get lastName() { return this._lastName; }
     set lastName(lastName) {
-        this._lastName = lastName;
+        let lastNameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
+        if(lastNameRegex.test(lastName))
+            this._lastName = lastName;
+        else throw 'last name is Incorrect';
     }
     get address() { return this._address; }
     set address(address) {
-        this._address = address;
+        let addressRegex = RegExp("^[A-Za-z]{4,}$");
+        if(addressRegex.test(address))
+            this._address = address;
+        else throw 'address is incorrect';
     }
     get city() { return this._city; }
     set city(city) {
-        this._city = city;
+        let cityRegex = RegExp("^[A-Za-z]{4,}$");
+        if(cityRegex.test(city))
+            this._city = city;
+        else throw 'city is incorrect';
     }
     get state() { return this._state; }
     set state(state) {
-        this._state = state;
+        let stateRegex = RegExp("^[A-Za-z]{4,}$");
+        if(stateRegex.test(state))
+            this._state = state;
+        else throw 'state is incorrect';
     }
     get zip() { return this._zip; }
     set zip(zip) {
-        this._zip = zip;
+        let zipRegex = RegExp("(^[0-9]{3})([\s]?)([0-9]{3}$)");
+        if(zipRegex.test(zip))
+            this._zip = zip;
+        else throw 'zip is incorrect';
     }
     get phoneNumber() { return this._phoneNumber; }
     set phoneNumber(phoneNumber) {
-        this._phoneNumber = phoneNumber;
+        let phoneRegex = RegExp("[1-9][0-9][\\s][1-9][0-9]{9}");
+        if(phoneRegex.test(phoneNumber))
+            this._phoneNumber = phoneNumber;
+        else throw 'Phone number is incorrect';
     }
     get email() { return this._email; }
     set email(email) {
-        this._email = email;
+        let emailRegex = RegExp("([a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9])(([+-_.][a-zA-Z0-9]*)?)(@[a-zA-Z0-9]*)[.]([a-z]{2,})(([.][a-zA-z]{2})?)");
+        if(emailRegex.test(email))
+            this._email = email;
+        else throw 'email is incorrect';
     }
     toString() {
         return "first name="+ this.firstName +",last name="+ this.lastName +", address="+ this.address+", city="+ this.city
@@ -47,5 +71,5 @@ class AddressBook {
     }
 
 }
-let addressBook = new AddressBook("Mark","James","23 bakers street","Banglore","Karnataka","577834","9898989898","mark@gmail.com");
+let addressBook = new AddressBook("Mark","James","BakersStreet","Banglore","Karnataka",577834,"91 9898989898","mark@gmail.com");
 console.log(addressBook.toString());
