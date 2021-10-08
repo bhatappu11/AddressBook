@@ -75,6 +75,7 @@ let contactArray = new Array();
 addContact(new AddressBook("Mark","Taylor","RTNagar","Bengaluru","Karnataka",577333,"91 8989898989","mark@gmail.com"));
 addContact(new AddressBook("Tim","Holland","JPNagar","Bengaluru","Karnataka",560180,"91 6767676767","tim@gmail.com"));
 addContact(new AddressBook("Brad","Pitt","Jaynagar","Shimoga","Karnataka",562380,"91 9967676767","brad@gmail.com"));
+addContact(new AddressBook("Timothee","Root","JPnagar","Pune","Maharashtra",560080,"91 9967679967","root@gmail.com"));
 //add
 function addContact(contact){
     let duplicate = contactArray.find(currentContact => currentContact._firstName == contact._firstName && currentContact._lastName == contact._lastName);
@@ -220,4 +221,47 @@ function SortByName(){
 
 SortByName();
 console.log("\nSorted Array based on name: ")
+console.log(contactArray.toString());
+
+//sort by zip, state, city
+function SortByZip(){
+    contactArray.sort((contact1,contact2) =>{
+        if(contact1._zip > contact2._zip)
+            return 1;
+        else if(contact1._zip < contact2._zip)
+            return -1;
+        else 0;
+    })
+}
+
+function SortByCity(){
+    contactArray.sort((contact1,contact2) =>{
+        if(contact1._city > contact2._city)
+            return 1;
+        else if(contact1._city < contact2._city)
+            return -1;
+        else 0;
+    })
+}
+
+function SortByState(){
+    contactArray.sort((contact1,contact2) =>{
+        if(contact1._state > contact2._state)
+            return 1;
+        else if(contact1._state < contact2._state)
+            return -1;
+        else 0;
+    })
+}
+
+SortByZip();
+console.log("Sorted Array based on Zip: ")
+console.log(contactArray.toString());
+
+SortByCity();
+console.log("Sorted Array based on City: ")
+console.log(contactArray.toString());
+
+SortByState();
+console.log("Sorted Array based on State: ")
 console.log(contactArray.toString());
